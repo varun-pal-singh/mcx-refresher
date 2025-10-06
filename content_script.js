@@ -524,7 +524,7 @@ let recurringTimerId = null; // Holds the ID for the continuous 5-minute loop
 // --- Proxy Identification & Robustness Constants ---
 const MAGIC_FLAG_NAME = 'auto-capture';
 const MAGIC_FLAG_VALUE = 'true';
-// const EVENT_INFO_FIELD_ID = 'MCBrowserEventInformation';
+const EVENT_INFO_FIELD_ID = 'MCBrowserEventInformation';
 
 
 /**
@@ -598,11 +598,11 @@ function executeAutoClickJob() {
 
 
     // --- 3. Clear Event Info Field (Crucial for clean form submission) ---
-    // const eventInfoInput = form.querySelector(`input#${EVENT_INFO_FIELD_ID}`);
-    // if (eventInfoInput) {
-    //     eventInfoInput.value = '';
-    //     console.log(`[EXECUTE] Cleared ${EVENT_INFO_FIELD_ID} field.`);
-    // }
+    const eventInfoInput = form.querySelector(`input#${EVENT_INFO_FIELD_ID}`);
+    if (eventInfoInput) {
+        eventInfoInput.value = '';
+        console.log(`[EXECUTE] Cleared ${EVENT_INFO_FIELD_ID} field.`);
+    }
 
     // --- 4. Update Time and Click ---
     // Update the time in storage to mark the latest successful auto-click.
